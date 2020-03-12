@@ -49,7 +49,7 @@ public class BookMyShowImpl {
      
 	
 	@Autowired
-	private MoviesRepo repo;
+	private MoviesRepo repo;                                                                                                                                                                                     
 	
     ResourceLoader resourceLoader;
 
@@ -60,7 +60,7 @@ public class BookMyShowImpl {
 	}
 
 	/**
-	 * Initally loads DB with user defined data.
+	 * Initially loads DB with user defined data.
 	 * @throws IOException
 	 * @throws SQLException
 	 */
@@ -120,6 +120,9 @@ public class BookMyShowImpl {
 	 * @return
 	 */
 	public Iterable<Movie> getMovies() {
+		Iterable<Movie> movies = repo.findAll();
+		List<Movie> movie = new ArrayList<>();
+		// movies.forEach(movies::add);
 		return repo.findAll();
 	}
 	

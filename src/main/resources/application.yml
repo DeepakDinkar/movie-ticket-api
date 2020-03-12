@@ -1,0 +1,12 @@
+security:
+     key: 3f2c60a7-99c7-410e-8397-c32acaed7c06
+     keyHeaderName: x-api-key
+server:
+    port: 8088
+spring:
+    banner:
+        location: classpath:banner.txt
+    data:
+        mongodb:
+            uri: mongodb://127.0.0.1:27017/bookmymovie
+     
