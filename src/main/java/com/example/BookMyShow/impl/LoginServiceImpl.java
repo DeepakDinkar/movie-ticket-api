@@ -7,33 +7,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.example.BookMyShow.dao.LoginRepo;
 import com.example.BookMyShow.model.LoginCredentials;
 import com.example.BookMyShow.model.LoginResult;
 
 @Component
 public class LoginServiceImpl {
-	
-	static final String JDBC_DRIVER = "org.h2.Driver"; //org.h2.Driver
+
+	static final String JDBC_DRIVER = "org.h2.Driver"; // org.h2.Driver
 	static final String DB_URL = "jdbc:h2:mem:danny";
 	static final String USER = "sa";
-    static final String PASS = "";
+	static final String PASS = "";
 	Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-    Statement stmt = conn.createStatement();
-    
-	
-    public LoginServiceImpl() throws SQLException {
+	Statement stmt = conn.createStatement();
+
+	public LoginServiceImpl() throws SQLException {
 		super();
 	}
 
-	@Autowired
-	private LoginRepo repo;
-	
 	public ResponseEntity<?> validateLogin(LoginCredentials logindetails) throws SQLException {
 		String username = logindetails.getUsername();
 		String sqlQuery = "select password from login_credentials where (username=?)";
@@ -59,8 +53,7 @@ public class LoginServiceImpl {
 			response.setMessage("User not configured");
 			return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
 		}
-		
-	}	
-	
+
+	}
+
 }
-	

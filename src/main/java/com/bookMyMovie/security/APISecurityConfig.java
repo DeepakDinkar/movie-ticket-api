@@ -41,8 +41,7 @@ public class APISecurityConfig extends WebSecurityConfigurerAdapter {
 		String[] matcher = { "/v2/api-docs", "/swagger-resources", "/swagger-resources/**", "/configuration/ui",
 				"/configuration/security", "/swagger-ui.html", "/webjars/**" };
 		httpSecurity.authorizeRequests().antMatchers(matcher).permitAll();
-		
-		
+
 		httpSecurity.antMatcher("/**").csrf().disable().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().addFilter(filter).authorizeRequests()
 				.anyRequest().authenticated();

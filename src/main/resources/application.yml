@@ -2,11 +2,22 @@ security:
      key: 3f2c60a7-99c7-410e-8397-c32acaed7c06
      keyHeaderName: x-api-key
 server:
-    port: 8088
+    port: 8443
+    ssl:
+        key-alias: selfsigned_localhost_sslserver
+        key-password: changeit
+        key-store: classpath:ssl-server.jks
+        key-store-provider: SUN
+        key-store-type: JKS
 spring:
     banner:
-        location: classpath:banner.txt
+        location: classpath:static/banner.txt
     data:
         mongodb:
             uri: mongodb://127.0.0.1:27017/bookmymovie
-     
+    h2:
+        console:
+            enabled: true
+    datasource:
+        platform: h2
+        url: jdbc:h2:mem:danny

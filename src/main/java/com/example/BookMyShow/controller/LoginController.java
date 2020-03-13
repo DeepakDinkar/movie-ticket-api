@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.BookMyShow.model.LoginCredentials;
-import com.example.BookMyShow.model.LoginResult;
 import com.example.BookMyShow.services.LoginService;
 
 @RestController

@@ -24,6 +24,17 @@ public class ThreatreController {
 	TheatreService theatreService;
 
 	/**
+	 * Returns list of theaters which matches the given theater id.
+	 * 
+	 * @param theatreId
+	 * @return List of Theater objects.
+	 */
+	@GetMapping(path = "/theatre", params = "theatreId")
+	Theatre getTheatresListByTheatreId(@RequestParam("theatreId") String theatreId) {
+		return theatreService.getTheatreByTheatreId(theatreId);
+	}
+	
+	/**
 	 * Returns list of theaters which matches the given movie id.
 	 * 
 	 * @param movieId
@@ -35,16 +46,7 @@ public class ThreatreController {
 		return theatreService.getTheatresListByMovieId(list);
 	}
 
-	/**
-	 * Returns list of theaters which matches the given theater id.
-	 * 
-	 * @param theatreId
-	 * @return List of Theater objects.
-	 */
-	@GetMapping(path = "/theatre", params = "theatreId")
-	Theatre getTheatresListByTheatreId(@RequestParam("theatreId") String theatreId) {
-		return theatreService.getTheatreByTheatreId(theatreId);
-	}
+	
 
 	/**
 	 * Returns list of theaters.

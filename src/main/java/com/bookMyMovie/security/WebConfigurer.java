@@ -13,7 +13,7 @@ public class WebConfigurer {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("http://localhost:3000").allowedHeaders("x-api-key");
+				registry.addMapping("/**").allowedOrigins("http://192.168.29.44:3001", "http://localhost:3000").allowedHeaders("x-api-key");
 			}
 		};
 	}
